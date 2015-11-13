@@ -3,6 +3,7 @@ package com.minhld.loganbus;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.Position;
@@ -15,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // add the side menu
+        setupSlideMenu(R.layout.activity_main);
     }
 
     @Override
@@ -45,5 +49,29 @@ public class MainActivity extends AppCompatActivity {
         mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.Type.BEHIND, Position.LEFT, MenuDrawer.MENU_DRAG_WINDOW);
         mMenuDrawer.setContentView(activityId);
         mMenuDrawer.setMenuView(R.layout.layout_leftmenu);
+    }
+
+    private class SlideMenuClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+
+                case R.id.settingButton: {
+
+                    break;
+                }
+                case R.id.aboutButton:{
+
+                    break;
+                }
+                default:{
+
+                }
+            }
+            // close the menu
+            mMenuDrawer.toggleMenu();
+        }
+
     }
 }

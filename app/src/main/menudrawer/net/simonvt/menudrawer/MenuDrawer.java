@@ -1,7 +1,5 @@
 package net.simonvt.menudrawer;
 
-import com.nsoft.campus500.R;
-
 import net.simonvt.menudrawer.compat.ActionBarHelper;
 import android.app.Activity;
 import android.content.Context;
@@ -25,6 +23,8 @@ import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
+
+import com.minhld.loganbus.R;
 
 public abstract class MenuDrawer extends ViewGroup {
 
@@ -1310,7 +1310,7 @@ public abstract class MenuDrawer extends ViewGroup {
     /**
      * Sets the drawable used as the drawer indicator.
      *
-     * @param drawable The drawable used as the drawer indicator.
+     * @param drawableRes The drawable used as the drawer indicator.
      */
     public void setSlideDrawable(int drawableRes) {
         setSlideDrawable(getResources().getDrawable(drawableRes));

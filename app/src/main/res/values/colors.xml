@@ -1,3 +1,9 @@
 <resources>
     <color name="main_color">#3b5998</color>
+
+    <color name="md__transparent">#00000000</color>
+    <color name="md__defaultBackground">#FF303030</color>
+    <color name="menu_sub_item_bg">#FF505050</color>
+    <color name="menu_text_color">#fff</color>
+
 </resources>

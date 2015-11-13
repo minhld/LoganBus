@@ -29,7 +29,7 @@
 	        
 	    </RelativeLayout>
 	        
-	    <!-- go to my library -->
+	    <!-- settings -->
 		<LinearLayout 
 		    android:layout_width="match_parent"
 			android:layout_height="45dp"
@@ -40,21 +40,46 @@
 		    <ImageView 
 		        android:layout_width="18dp"
 			 	android:layout_height="18dp"
-			 	android:src="@drawable/ic_mylib_white"
+			 	android:src="@drawable/ic_settings_applications_white_48dp"
 			 	android:contentDescription="@string/empty_text"/>
 		    
 			<TextView 
-			 	android:id="@+id/goMyLibButton"
+			 	android:id="@+id/settingButton"
 			 	android:layout_width="match_parent"
 			 	android:layout_height="wrap_content"
-			 	android:text="@string/activity_title_mylib"
+			 	android:text="@string/menu_settings"
 			 	android:textColor="@color/menu_text_color"
 			 	android:textSize="@dimen/menu_item_font_size"
 			 	android:layout_marginLeft="5dp" />
 			    
 		</LinearLayout>
-		
 
-		
+		<!-- about -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="45dp"
+			android:orientation="horizontal"
+			style="@style/MenuDrawer.Widget.Title"
+			android:background="@drawable/menu_main_item_bg">
+
+			<ImageView
+				android:layout_width="18dp"
+				android:layout_height="18dp"
+				android:src="@drawable/ic_info_outline_white_48dp"
+				android:contentDescription="@string/empty_text"/>
+
+			<TextView
+				android:id="@+id/aboutButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/menu_about"
+				android:textColor="@color/menu_text_color"
+				android:textSize="@dimen/menu_item_font_size"
+				android:layout_marginLeft="5dp" />
+
+		</LinearLayout>
+
+
+
 	</LinearLayout>
 </ScrollView>	
