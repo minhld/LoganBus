@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.minhld.supports.GTFSLoader;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,10 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Object[] params){
                 try{
-                    Thread.sleep(1500);
+                    // load the GTFS data
+                    GTFSLoader.loadGTFS(SplashActivity.this);
+
+                    Thread.sleep(1000);
                     publishProgress(0);
                 }catch(Exception e){
                     publishProgress(-1);
