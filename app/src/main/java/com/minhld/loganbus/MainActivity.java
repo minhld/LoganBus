@@ -11,6 +11,7 @@ import net.simonvt.menudrawer.Position;
 public class MainActivity extends AppCompatActivity {
     private static final String STATE_MENUDRAWER = "menuDrawer";
     private MenuDrawer mMenuDrawer;
+    private SlideMenuClickListener menuClickListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +45,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * setup the slide left menu
+     *
+     * @param activityId
+     */
     void setupSlideMenu(int activityId) {
         // setup the menu drawer
         mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.Type.BEHIND, Position.LEFT, MenuDrawer.MENU_DRAG_WINDOW);
         mMenuDrawer.setContentView(activityId);
         mMenuDrawer.setMenuView(R.layout.layout_leftmenu);
+
+        menuClickListener = new SlideMenuClickListener();
     }
 
+    /**
+     * This class handles tap events in the whole screen
+     */
     private class SlideMenuClickListener implements View.OnClickListener {
 
         @Override
