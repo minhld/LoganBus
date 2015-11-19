@@ -17,11 +17,20 @@ import com.minhld.supports.Route;
 import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.Position;
 
+import org.osmdroid.views.MapView;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
     private static final String STATE_MENUDRAWER = "menuDrawer";
 
     private MenuDrawer mMenuDrawer;
     private LinearLayout routeList;
+
+    @Bind(R.id.busMap)
+    MapView mBusMap;
+
     private SlideMenuClickListener menuClickListener;
 
     @Override
@@ -29,11 +38,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // bind butter knife to the main activity's layout
+        ButterKnife.bind(this);
+
         // add the side menu
         setupSlideMenu(R.layout.activity_main);
 
         // add route items into the left menu
         buildRouteList();
+
+        mBusMap.setBuiltInZoomControls(true);
+        mBusMap.setMultiTouchControls(true);
+
     }
 
     @Override
