@@ -29,6 +29,9 @@ public class GTFSLoader {
     }
 
     private static void getRoutes(Context c) throws IOException {
+        // clean the route list
+        GTFSLoader.routes.clear();
+
         InputStream routeStream = c.getAssets().open("routes.txt", Context.MODE_WORLD_READABLE);
         List<Map<String, String>> lines = readCsv(routeStream);
         for (Map<String, String> line : lines) {
