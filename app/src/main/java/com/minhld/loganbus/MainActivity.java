@@ -13,17 +13,26 @@ import android.widget.TextView;
 
 import com.minhld.supports.GTFSLoader;
 import com.minhld.supports.Route;
+import com.minhld.supports.Utils;
 
 import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.Position;
 
+import org.osmdroid.tileprovider.modules.DatabaseFileArchive;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+
+import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String STATE_MENUDRAWER = "menuDrawer";
+    private static final String STATE_MENU_DRAWER = "menuDrawer";
+    private static final int MAP_DEFAULT_ZOOM = 15;
+    private double MAP_DEFAULT_LATITUDE = 38.535350;
+    private double MAP_DEFAULT_LONGITUDE = -121.753807;
 
     private MenuDrawer mMenuDrawer;
     private LinearLayout routeList;
@@ -50,6 +59,21 @@ public class MainActivity extends AppCompatActivity {
         mBusMap.setBuiltInZoomControls(true);
         mBusMap.setMultiTouchControls(true);
 
+        String osmPath = Utils.getDownloadPath() + "/map.osm";
+        DatabaseFileArchive localTileSource = DatabaseFileArchive.getDatabaseFileArchive(new File(osmPath));
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
     }
 
     @Override
@@ -57,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         try {
             if (mMenuDrawer != null){
-                mMenuDrawer.restoreState(savedInstanceState.getParcelable(STATE_MENUDRAWER));
+                mMenuDrawer.restoreState(savedInstanceState.getParcelable(STATE_MENU_DRAWER));
             }
         } catch (Exception e) { }
     }

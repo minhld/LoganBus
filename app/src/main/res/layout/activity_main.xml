@@ -6,6 +6,7 @@
     <org.osmdroid.views.MapView
         android:id="@+id/busMap"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:clickable="true"/>
 
 </RelativeLayout>
