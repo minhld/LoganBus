@@ -12,18 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.minhld.supports.GTFSLoader;
+import com.minhld.supports.MapLoader;
 import com.minhld.supports.Route;
-import com.minhld.supports.Utils;
 
 import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.Position;
 
-import org.osmdroid.tileprovider.modules.DatabaseFileArchive;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
-
-import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -56,11 +51,10 @@ public class MainActivity extends AppCompatActivity {
         // add route items into the left menu
         buildRouteList();
 
-        mBusMap.setBuiltInZoomControls(true);
-        mBusMap.setMultiTouchControls(true);
 
-        String osmPath = Utils.getDownloadPath() + "/map.osm";
-        DatabaseFileArchive localTileSource = DatabaseFileArchive.getDatabaseFileArchive(new File(osmPath));
+
+        // load the local osm map
+        MapLoader.loadLocalMap(this, mBusMap);
 
     }
 
@@ -113,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
         menuClickListener = new SlideMenuClickListener();
     }
 
+    /**
+     * add route list into the menu
+     */
     void buildRouteList(){
         routeList = (LinearLayout)findViewById(R.id.routeMenuList);
 
