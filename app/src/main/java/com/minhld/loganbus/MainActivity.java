@@ -25,9 +25,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     private static final String STATE_MENU_DRAWER = "menuDrawer";
-    private static final int MAP_DEFAULT_ZOOM = 15;
-    private double MAP_DEFAULT_LATITUDE = 38.535350;
-    private double MAP_DEFAULT_LONGITUDE = -121.753807;
 
     private MenuDrawer mMenuDrawer;
     private LinearLayout routeList;

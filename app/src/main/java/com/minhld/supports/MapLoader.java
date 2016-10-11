@@ -16,6 +16,9 @@ import java.io.File;
  */
 
 public class MapLoader {
+    private static final int MAP_DEFAULT_ZOOM = 15;
+    private double MAP_DEFAULT_LATITUDE = 38.535350;
+    private double MAP_DEFAULT_LONGITUDE = -121.753807;
 
     public static void loadLocalMap(final Context context, final MapView osmViewer) {
         new AsyncTask(){
