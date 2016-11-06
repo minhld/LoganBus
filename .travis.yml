@@ -19,4 +19,4 @@ android:
     # if you need to run emulator(s) during your tests
     
 before_install:
- - chmod +x gradlew
+ - sudo chmod +x gradlew
