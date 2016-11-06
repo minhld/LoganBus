@@ -18,3 +18,5 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     
+before_install:
+ - chmod +x gradlew
