@@ -22,6 +22,10 @@ android {
         main.java.srcDirs += 'src/main/menudrawer'
         main.assets.srcDir('src/main/assets')
     }
+    
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
